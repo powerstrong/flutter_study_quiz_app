@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app_test/model/model_quiz.dart';
+import 'package:flutter_quiz_app_test/screen/screen_quiz.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,6 +9,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // 퀴즈 페이지로 넘어갈 때 랜덤으로 퀴즈데이터를 가져옴. 더미 데이터
+  List<Quiz> quizs = [
+    Quiz.fromMap({
+      'title': '#1. What is the capital of France?',
+      'candidates': ['Paris', 'Lyon', 'Lille', 'Marseille'],
+      'answer': 0,
+    }),
+    Quiz.fromMap({
+      'title': '#2. What is the capital of France?',
+      'candidates': ['Paris', 'Lyon', 'Lille', 'Marseille'],
+      'answer': 0,
+    }),
+    Quiz.fromMap({
+      'title': '#3. What is the capital of France?',
+      'candidates': ['Paris', 'Lyon', 'Lille', 'Marseille'],
+      'answer': 0,
+    }),
+  ];
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -65,7 +86,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     primary: Colors.deepPurple,
                     minimumSize: Size(280, height * 0.06),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuizScreen(
+                          quizs: quizs,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               )),
             )
