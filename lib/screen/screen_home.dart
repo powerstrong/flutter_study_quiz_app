@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -64,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.deepPurple,
+                    minimumSize: Size(280, height * 0.06),
                   ),
                   onPressed: () {},
                 ),
